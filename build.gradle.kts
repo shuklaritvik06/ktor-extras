@@ -2,6 +2,7 @@ val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
 
+
 plugins {
     kotlin("jvm") version "1.8.20"
     id("io.ktor.plugin") version "2.3.0"
@@ -19,6 +20,7 @@ application {
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
 }
 
 dependencies {
@@ -39,4 +41,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation("io.ktor:ktor-server-html-builder:$ktor_version")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-css:1.0.0-pre.473")
+    implementation("org.webjars.npm:github-com-tailwindcss-tailwindcss:0.5.1")
 }
